@@ -12,13 +12,19 @@ class Adverts extends Component {
     render() {
         const advertContent = this.props.adverts.map(advert => (
             <div key={advert.id}>
-                <h3>{advert.Title}</h3>
-                <p>{advert.Description}</p>
+                <div className="card p-2" style={style}>
+                    <img src={advert.Image} alt="property image" className="card-img-top"/>
+                    <div className="card-body">
+                        <h5 className="card-title">{advert.Title}</h5>
+                        <p className="card-text">{advert.Description}</p>
+                        <p className="card-text"><small className="text-muted">created on {advert.created_on}</small></p>
+                    </div>
+                </div>
             </div>
         ));
         return (
-            <div>
-                <h1>Adverts</h1>
+            <div className="main">
+                {/* <h1>Adverts</h1> */}
                 {
                     advertContent
                 }
@@ -35,5 +41,9 @@ Adverts.propTypes = {
 const mapStateToProps = state => ({
     adverts: state.adverts.items
 });
+
+const style ={
+    width: "18rem"
+}
 
 export default connect(mapStateToProps, { fetchAdverts })(Adverts);
