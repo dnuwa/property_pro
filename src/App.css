@@ -3,3 +3,10 @@
   width: 90%;
   margin: auto;
 }
+
+.main{
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  margin: 0 50px;
+}
