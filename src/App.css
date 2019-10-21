@@ -1,12 +1,21 @@
 .App {
   /* text-align: center; */
-  width: 90%;
+  width: 100%;
   margin: auto;
 }
 
 .main{
   display: grid;
-  grid-gap: 5px;
+  grid-gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   margin: 0 50px;
+}
+
+.card{
+  /* align-self: auto; */
+  box-shadow: 0 1px 5px rgba(104, 104, 104, 104);
+}
+
+.card:hover{
+  box-shadow: 0 1px 15px rgba(104, 104, 104, 104);
 }

@@ -43,7 +43,7 @@ const mapStateToProps = state => ({
 });
 
 const style ={
-    width: "18rem"
+    width: '100%'
 }
 
 export default connect(mapStateToProps, { fetchAdverts })(Adverts);
