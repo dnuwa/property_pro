@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import advertsReducer from './advertsReducer';
-import loginReducer from './authReducer';
+import authReducer from './authReducer';
 
 export default combineReducers({
     adverts: advertsReducer,
-    login: loginReducer
+    authentication: authReducer
 });
