@@ -7,7 +7,8 @@ import store from './store';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header';
 import Login from './components/Login'
-import Notifications, { notify } from './components/Notifications'
+import Signup from './components/Signup'
+import Notifications from './components/Notifications'
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             </React.Fragment>
           )}/>
           <Route path="/login" component={Login} />
+          <Route path="/signup" component={Signup} />
         </div>
       </Provider>
     </Router>

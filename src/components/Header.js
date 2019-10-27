@@ -11,6 +11,9 @@ export class Header extends Component {
                         <button type="button" className="btn btn-outline-info"><Link to="/login">Login</Link></button>
                     </li>
                     <li className="list-group-item border-0">
+                        <button type="button" className="btn btn-outline-info"><Link to="/signup">Signup</Link></button>
+                    </li>
+                    <li className="list-group-item border-0">
                         <button type="button" className="btn btn-outline-info">Advertise</button>
                     </li>
                 </ul>
