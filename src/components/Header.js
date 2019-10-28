@@ -14,7 +14,7 @@ export class Header extends Component {
                         <button type="button" className="btn btn-outline-info"><Link to="/signup">Signup</Link></button>
                     </li>
                     <li className="list-group-item border-0">
-                        <button type="button" className="btn btn-outline-info">Advertise</button>
+                        <button type="button" className="btn btn-outline-info"><Link to="/advertise">Advertise</Link></button>
                     </li>
                 </ul>
                 <form className="form-inline my-1">
