@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { postNewAd } from '../actions/advertsAction'
 
 export class PostAd extends Component {
     constructor(props){
@@ -6,14 +8,14 @@ export class PostAd extends Component {
         this.state = {
             title: '',
             type: '',
-            district: '',
-            location: '',
             rooms: '',
             price: '',
             state: '',
             status: '',
             description: '',
-            image: ''
+            imageUrl: '',
+            city: '',
+            address: '',         
         }
     }
 
@@ -23,13 +25,16 @@ export class PostAd extends Component {
 
     handleSubmit =(event) => {
         event.preventDefault();
+        this.props.postNewAd(this.state);
     }
 
     render() {
         return (
-            <div>
-                <form className="container" onSubmit={this.handleSubmit}>
-                <div className="form-group">
+            <div class="container">
+                <form onSubmit={this.handleSubmit}>
+                <div class="row">
+                    <div class="col">
+                    <div className="form-group">
                     <label htmlFor="exampleInputFname">Title</label>
                     <input type="title" 
                     name="title" 
@@ -49,28 +54,6 @@ export class PostAd extends Component {
                     aria-describedby="typeHelp" 
                     placeholder="Rental/Sale"
                     value={this.state.type}
-                    onChange={this.handleChange} />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="exampleInputPhonenumber">District</label>
-                    <input type="district" 
-                    name="district" 
-                    className="form-control" 
-                    id="exampleInputdistrict1" 
-                    aria-describedby="districtHelp" 
-                    placeholder="kigali"
-                    value={this.state.district}
-                    onChange={this.handleChange} />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="exampleInputAddress">Location</label>
-                    <input type="location" 
-                    name="location" 
-                    className="form-control" 
-                    id="exampleInputlocation1" 
-                    aria-describedby="locationHelp" 
-                    placeholder="colivile street plot 21, kigali - Rwanda"
-                    value={this.state.location}
                     onChange={this.handleChange} />
                 </div>
                 <div className="form-group">
@@ -104,7 +87,9 @@ export class PostAd extends Component {
                     value={this.state.state} 
                     onChange={this.handleChange}/>
                 </div>
-                <div className="form-group">
+                    </div>
+                    <div class="col">
+                    <div className="form-group">
                     <label htmlFor="exampleInputStatus1">Status</label>
                     <input type="status" 
                     name="status" 
@@ -112,6 +97,26 @@ export class PostAd extends Component {
                     id="exampleInputstatus1" 
                     placeholder="New/Old"
                     value={this.state.status} 
+                    onChange={this.handleChange}/>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="exampleCity1">City</label>
+                    <input type="city" 
+                    name="city" 
+                    className="form-control" 
+                    id="exampleInputstatus1" 
+                    placeholder="kampala"
+                    value={this.state.city} 
+                    onChange={this.handleChange}/>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="exampleInputAddress1">Address</label>
+                    <input type="address" 
+                    name="address" 
+                    className="form-control" 
+                    id="exampleInputAddress1" 
+                    placeholder="plot 20, mbuya"
+                    value={this.state.address} 
                     onChange={this.handleChange}/>
                 </div>
                 <div className="form-group">
@@ -125,20 +130,22 @@ export class PostAd extends Component {
                     onChange={this.handleChange}/>
                 </div>
                 <div className="form-group">
-                    <label htmlFor="exampleInputImage1">Property Image</label>
+                    <label htmlFor="exampleInputimageUrl1">Property Image</label>
                     <input type="url" 
-                    name="image" 
+                    name="imageUrl" 
                     className="form-control" 
-                    id="exampleInputImage1" 
-                    placeholder="htps://someimage.jpg"
-                    value={this.state.image} 
+                    id="exampleInputimageUrl1" 
+                    placeholder="htps://someimageUrl.jpg"
+                    value={this.state.imageUrl} 
                     onChange={this.handleChange}/>
                 </div>
+                    </div>
+                </div>
                 <button type="submit" className="btn btn-primary">Submit</button>
-            </form>
+                </form>
             </div>
         )
     }
 }
 
-export default PostAd
+export default connect(null, { postNewAd })(PostAd)
