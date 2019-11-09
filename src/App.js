@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header';
 import Login from './components/Login'
 import Signup from './components/Signup'
+import PostAd from './components/PostAd'
 import Notifications from './components/Notifications'
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           )}/>
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
+          <Route path="/advertise" component={PostAd} />
         </div>
       </Provider>
     </Router>
