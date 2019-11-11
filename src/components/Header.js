@@ -4,18 +4,19 @@ import { Link } from 'react-router-dom'
 export class Header extends Component {
     render() {
         return (
-            <nav className="navbar mb-5 py-0 px-5 shadow p-3 mb-4 bg-white rounded">    
-                <ul className="list-group flex-md-row">
-                    <li className="navbar-brand list-group-item"><Link to="/">PropertyPro-Lite</Link></li>
-                    <li className="list-group-item border-0">
-                        <button type="button" className="btn btn-outline-info"><Link to="/login">Login</Link></button>
+            <nav className="navbar bg-white"> 
+                <div className="logo"><Link to="/">PropertyPro-Lite</Link> </div>  
+                <ul className="list-group flex-md-row list">
+                    <li className="list-group-item">
+                        <Link to="/advertise"><div className="headerlink">Advertise</div></Link>
                     </li>
-                    <li className="list-group-item border-0">
-                        <button type="button" className="btn btn-outline-info"><Link to="/signup">Signup</Link></button>
+                    <li className="list-group-item">
+                        <Link to="/login"><div className="headerlink">Login</div></Link>
                     </li>
-                    <li className="list-group-item border-0">
-                        <button type="button" className="btn btn-outline-info"><Link to="/advertise">Advertise</Link></button>
+                    <li className="list-group-item">
+                        <Link to="/signup"><div className="headerlink">Signup</div></Link>
                     </li>
+                    
                 </ul>
             </nav>
         )
