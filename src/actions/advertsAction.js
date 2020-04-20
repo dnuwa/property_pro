@@ -1,12 +1,21 @@
-import { FETCH_ADS, AD_CREATE_SUCCESS, AD_CREATE_FAILURE } from './types';
+import { FETCH_ADS, 
+    AD_CREATE_SUCCESS, 
+    AD_CREATE_FAILURE,
+    SHOW_AD_DETAILS,
+ } from './types';
+
+ import { trackPromise } from 'react-promise-tracker';
 
 export const fetchAdverts = () => dispatch =>{ 
-    fetch('https://property-pro-lite-api-app.herokuapp.com/api/v1/property')
-        .then(res => res.json())
-        .then(ads => dispatch({
-            type: FETCH_ADS,
-            payload: ads.data
-        })); 
+    trackPromise(
+        fetch('https://property-pro-lite-api-app.herokuapp.com/api/v1/property')
+            .then(res => res.json())
+            .then(ads => dispatch({
+                type: FETCH_ADS,
+                payload: ads.data
+            })
+        )
+    ); 
 }
 
 export const postNewAd = (adObject) => dispatch =>{
@@ -30,3 +39,18 @@ export const postNewAd = (adObject) => dispatch =>{
         error
     }))
 }
+
+export const getAdInfo = () => dispatch =>{
+
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const Id = urlParams.get("propertyId");
+
+    fetch(`https://property-pro-lite-api-app.herokuapp.com/api/v1/property/${Id}`)
+    .then(res => res.json())
+    // .then(ad =>console.log(ad));
+    .then(adObj => dispatch({
+        type: SHOW_AD_DETAILS,
+        payload: adObj 
+    }))
+    }

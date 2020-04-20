@@ -67,27 +67,24 @@
   display: flex;
   flex-direction: row;
   width: 100%;
-  border: solid 2px;
+  /* border: solid 2px; */
   text-align: center;
 }
-
-/* .ad-img{
-  border: solid 2px;
-} */
 
 .ad-body img{
   width: 90%;
   height: 100%;
-  border: solid 2px;
+  /* border: solid 2px; */
 }
 
 .ad-details{
-  border: solid 2px;
+  /* border: solid 2px; */
   width: 50%;
   text-align: center;
+  margin: auto;
 }
 
 .detail{
-  border: solid;
+  /* border: solid; */
   margin:auto
 }

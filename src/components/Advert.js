@@ -1,30 +1,66 @@
 import React, { Component } from 'react'
-// import { faHome } from "@fortawesome/free-solid-svg-icons";
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { getAdInfo } from '../actions/advertsAction'
+import LoadingIndicator from './LoadingIndicator'
 
 export class Advert extends Component {
+
+    componentWillMount(){
+        this.props.getAdInfo();
+
+   }
+
     render() {
-        return (
-            <div className="container">
-                <div className="ad-body">
-                    <div className="ad-img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTMmb78M6JJYLi4Nvnc-O0KMueV07C6KQuX9Qi-RPnEcHkWxheA" /></div>
-                    <div className="ad-details">
-                        <h3>10 BEDROOMS FURNISHED HOUSE FOR RENTING IN KICUKIRO</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, eligendi, reiciendis nihil quidem voluptatem facilis exercitationem maiores unde vero molestiae deleniti magnam commodi sapiente minus possimus cumque beatae repellendus? Vero?</p>
-                        <div className="ad-body">
-                            <div className="detail"><FontAwesomeIcon icon={"coffee"}/>    Status: Available</div>
-                            <div className="detail"><FontAwesomeIcon icon={"coffee"}/> State: New</div>
+        let myStringArray = this.props.advertObj.data;
+
+        // console.log(typeof(myStringArray));
+        // console.log(myStringArray);
+        
+        if (myStringArray) {
+            // const x = myStringArray.map((y) => {
+            //   console.log(y.id);
+            // });
+
+            const propertyObj = myStringArray.map(propertyFeature => (
+                <div key={propertyFeature.id}>
+                    <div className="ad-body">
+                        <div className="ad-img"><img src={propertyFeature.imageurl} /></div>
+                        <div className="ad-details">
+                            <h3>{propertyFeature.title}</h3>
+                            <p>{propertyFeature.description}</p>
+                            <div className="ad-body">
+                                <div className="detail"><FontAwesomeIcon icon={"certificate"}/> Status: {propertyFeature.status}</div>
+                                <div className="detail"><FontAwesomeIcon icon={"star"}/> State: {propertyFeature.state}</div>
+                            </div>
+                            <div className="ad-body">
+                                <div className="detail"><FontAwesomeIcon icon={"home"}/> Type: {propertyFeature.type}</div>
+                                <div className="detail"><FontAwesomeIcon icon={"street-view"}/> City: {propertyFeature.city}</div>
+                            </div>
+                            <div><FontAwesomeIcon icon={"location-arrow"}/> Location: {propertyFeature.address} </div>
+                            <small className="form-text text-muted">posted on {propertyFeature.updatedon}</small>
                         </div>
-                        <div className="ad-body">
-                            <div className="detail">Type: Residential</div>
-                            <div className="detail">District: Kampala</div>
-                        </div>
-                        <div>Location: 31 street Industrial Area Kampala</div>
                     </div>
                 </div>
-            </div>
-        )
+                ));
+                return (
+                    <div className="container">
+                        { propertyObj }
+                    </div>
+                )
+          }
+          else{
+            return (
+                <LoadingIndicator/>
+            )
+          }
+
     }
 }
 
-export default Advert
+const mapStateToProps = state => ({
+    advertObj: state.adverts.item
+});
+
+export default connect(mapStateToProps, { getAdInfo })(Advert);

@@ -1,4 +1,4 @@
-import { FETCH_ADS, AD_CREATE_SUCCESS, AD_CREATE_FAILURE } from '../actions/types';
+import { FETCH_ADS, AD_CREATE_SUCCESS, AD_CREATE_FAILURE, SHOW_AD_DETAILS } from '../actions/types';
 import { notify } from  '../components/Notifications'
 
 const initialState = {
@@ -31,6 +31,12 @@ export default function(state = initialState, action){
             return {
                 ...state,
                 adCreatedPayload: action.payload
+            }
+        case SHOW_AD_DETAILS:
+            // console.log(action.payload);
+            return{
+                ...state,
+                item: action.payload
             }
         default:
             return state;
