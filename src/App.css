@@ -2,6 +2,7 @@
   /* text-align: center; */
   width: 100%;
   margin: auto;
+  font-family: Roboto;
 }
 
 .main{
@@ -18,4 +19,72 @@
 
 .card:hover{
   box-shadow: 0 1px 15px rgba(104, 104, 104, 104);
+}
+.logo a{
+  text-decoration: none !important;
+  font-size: 200%;
+  margin-left: 50px;
+}
+
+.navbar{
+  border-bottom: solid 1px;
+  margin-bottom: 15px;
+}
+
+.list-group-item{
+  position: relative;
+  display: block;
+  padding: 5px !important;
+  /* margin-bottom: -1px; */
+  background-color: #fff;
+  border: none !important;
+}
+
+.headerlink{
+  border: solid blue 1px;
+  border-radius: 30px;
+  padding: 8px;
+  width: 100px;
+  text-align: center;
+}
+
+.headerlink:hover{
+  background-color: blue;
+  color:white !important;
+}
+
+.headerlink a:hover{
+  text-decoration: none;
+  color:white !important;
+}
+
+.list{
+  margin-right: 5%;
+  border: none;
+}
+
+.ad-body{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  /* border: solid 2px; */
+  text-align: center;
+}
+
+.ad-body img{
+  width: 90%;
+  height: 100%;
+  /* border: solid 2px; */
+}
+
+.ad-details{
+  /* border: solid 2px; */
+  width: 50%;
+  text-align: center;
+  margin: auto;
+}
+
+.detail{
+  /* border: solid; */
+  margin:auto
 }
