@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { fetchAdverts } from '../actions/advertsAction';
+import UserProfile from './UserProfile';
+import CompanyAds from './CompanyAds';
 
 class Adverts extends Component {
     
@@ -13,23 +15,31 @@ class Adverts extends Component {
     render() {
         const advertContent = this.props.adverts.map(advert => (
             <div key={advert.id}>
-                <Link to={`/advert/?propertyId=${advert.id}`} >
-                <div className="card p-2" style={style}>                
-                    <img src={advert.Image} alt="property image" className="card-img-top"/>
-                    <div className="card-body">
-                        <h5 className="card-title">{advert.Title}</h5>
-                        <p className="card-text">{advert.Description}</p>
-                        <p className="card-text"><small className="text-muted">created on {advert.created_on}</small></p>
-                    </div>                    
-                </div>
+                <Link to={`/advert/?propertyId=${advert.id}`} className="card-link" >
+                    <div className="card p-2">                
+                        <img src={advert.Image} alt="property-visual" className="card-img-top"/>
+                        <div className="card-body">
+                            <h6 className="text-center">{advert.Title}</h6>
+                            <p className="text-center">{advert.Description}</p>
+                            <p className="text-center"><small className="text-muted">posted on {advert.created_on}</small></p>
+                        </div>                    
+                    </div>
                 </Link>
             </div>
         ));
         return (
-            <div className="main">
-                {
-                    advertContent
-                }
+            <div className="row parent">
+                <div className="col-2 pr-0">
+                    <UserProfile />
+                </div>
+                <div className="main col-8">
+                    {
+                        advertContent
+                    }
+                </div>
+                <div className="col-2 pl-0">
+                    <CompanyAds />
+                </div>
             </div>
         )
     }
@@ -41,11 +51,8 @@ Adverts.propTypes = {
 }
 
 const mapStateToProps = state => ({
-    adverts: state.adverts.items
+    adverts: state.adverts.items,
+    userData: state.authentication.userInfo
 });
-
-const style ={
-    width: '100%'
-}
 
 export default connect(mapStateToProps, { fetchAdverts })(Adverts);
