@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
-import { Provider } from "react-redux";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Router, Route } from "react-router-dom";
+import history from './_helpers/history'
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import {
@@ -10,10 +10,12 @@ import {
   faHome,
   faStreetView,
   faStar,
-  faLocationArrow
+  faLocationArrow,
+  faKey,
+  faUser,
+  faAd
 } from "@fortawesome/free-solid-svg-icons";
 import Adverts from "./components/Adverts";
-import store from "./store";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./components/Header";
 import Login from "./components/Login";
@@ -30,32 +32,37 @@ library.add(
   faHome,
   faStreetView,
   faStar,
-  faLocationArrow
+  faLocationArrow,
+  faKey,
+  faUser,
+  faAd,
 );
 
-function App() {
+const App = () => {
   return (
-    <Router>
-      <Provider store={store}>
-        <div className="App">
-          <Header />
-          <Notifications />
-          <LoadingIndicator/>
-          <Route
-            exact
-            path="/"
-            render={props => (
-              <React.Fragment>
-                <Adverts />
-              </React.Fragment>
-            )}
-          />
-          <Route path="/login" component={Login} />
-          <Route path="/signup" component={Signup} />
-          <Route path="/advertise" component={PostAd} />
-          <Route path="/advert" component={Advert} />
-        </div>
-      </Provider>
+    <Router history={history}>
+      <React.Fragment>
+          <div className="App">
+            <Header />
+            <Notifications />
+            <LoadingIndicator/>
+            <switch>
+              <Route
+                exact
+                path="/"
+                render={props => (
+                  <React.Fragment>
+                    <Adverts />
+                  </React.Fragment>
+                )}
+              />
+              <Route path="/login" component={Login} />
+              <Route path="/signup" component={Signup} />
+              <Route path="/advertise" component={PostAd} />
+              <Route path="/advert" component={Advert} />
+            </switch>
+          </div>
+      </React.Fragment>
     </Router>
   );
 }

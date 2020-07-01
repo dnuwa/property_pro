@@ -2,7 +2,7 @@ import { LOGIN_SUCCESS, LOGIN_FAILURE, SIGNUP_SUCCESS, SIGNUP_FAILURE } from '..
 import { notify } from  '../components/Notifications'
 
 const initialState = {
-    userCredentials: {}
+    userInfo: {}
 }
 
 export default function(state=initialState, action){
@@ -14,7 +14,6 @@ export default function(state=initialState, action){
                 localStorage.setItem('token', action.payload.data.token);
                 localStorage.setItem('username', action.payload.data.firstName);
                 notify(`Welcome ${action.payload.data.firstName}`, 'green');
-                window.location.replace('/');
             }
             return {
                 ...state,

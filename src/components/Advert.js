@@ -4,6 +4,10 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { getAdInfo } from '../actions/advertsAction'
 import LoadingIndicator from './LoadingIndicator'
+import UserProfile from './UserProfile';
+import CompanyAds from './CompanyAds';
+import Gallary from './Gallary'
+import Contact from './Contact'
 
 export class Advert extends Component {
 
@@ -15,19 +19,14 @@ export class Advert extends Component {
     render() {
         let myStringArray = this.props.advertObj.data;
 
-        // console.log(typeof(myStringArray));
         // console.log(myStringArray);
         
         if (myStringArray) {
-            // const x = myStringArray.map((y) => {
-            //   console.log(y.id);
-            // });
-
             const propertyObj = myStringArray.map(propertyFeature => (
                 <div key={propertyFeature.id}>
                     <div className="ad-body">
-                        <div className="ad-img"><img src={propertyFeature.imageurl} /></div>
-                        <div className="ad-details">
+                        <div className="ad-img col-6"><img src={propertyFeature.imageurl}  alt="property_visual"/></div>
+                        <div className="ad-details col-6">
                             <h3>{propertyFeature.title}</h3>
                             <p>{propertyFeature.description}</p>
                             <div className="ad-body">
@@ -45,8 +44,25 @@ export class Advert extends Component {
                 </div>
                 ));
                 return (
-                    <div className="container">
-                        { propertyObj }
+                    <div className="row parent">
+                        <div className="col-2">
+                            <UserProfile />
+                        </div>
+                        <div className=" col-8">
+
+                            <div className="main">{ propertyObj }</div>
+                            <div className="main">
+                                <div className="mini-galary">
+                                    <Gallary />
+                                </div>
+                                <div className="mini-galary">
+                                    <Contact />
+                                </div>                                
+                            </div>                           
+                        </div>
+                        <div className="col-2">
+                            <CompanyAds />
+                        </div>
                     </div>
                 )
           }
@@ -57,6 +73,10 @@ export class Advert extends Component {
           }
 
     }
+}
+
+Advert.propTypes = {
+    advert: PropTypes.array.isRequired
 }
 
 const mapStateToProps = state => ({

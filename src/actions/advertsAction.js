@@ -48,9 +48,8 @@ export const getAdInfo = () => dispatch =>{
 
     fetch(`https://property-pro-lite-api-app.herokuapp.com/api/v1/property/${Id}`)
     .then(res => res.json())
-    // .then(ad =>console.log(ad));
     .then(adObj => dispatch({
         type: SHOW_AD_DETAILS,
         payload: adObj 
     }))
-    }
+}

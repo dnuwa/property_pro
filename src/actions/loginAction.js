@@ -1,4 +1,5 @@
 import { LOGIN_SUCCESS, LOGIN_FAILURE } from './types'
+import history from '../_helpers/history'
 
 export const authLogin = (userdData) => dispatch => {
     fetch('https://property-pro-lite-api-app.herokuapp.com/api/v1/auth/signin',{
@@ -13,7 +14,9 @@ export const authLogin = (userdData) => dispatch => {
     .then(payload => dispatch({
         type: LOGIN_SUCCESS,
         payload
-    }))
+    }),
+    history.push('/')
+    )
     .catch(error => dispatch({
         type: LOGIN_FAILURE,
         error

@@ -19,10 +19,11 @@ export default function(state = initialState, action){
             } else {
                 localStorage.setItem('advert_id', action.payload.data.id);
                 notify('Success', 'green');
+                window.location.replace('/');
             }
             return {
                 ...state,
-                adCreatedPayload: action.payload
+                item: action.payload
             }
         case AD_CREATE_FAILURE:
 
@@ -30,7 +31,7 @@ export default function(state = initialState, action){
             notify('Something has gone wrong, check your internet and try again', 'red');
             return {
                 ...state,
-                adCreatedPayload: action.payload
+                item: action.payload
             }
         case SHOW_AD_DETAILS:
             // console.log(action.payload);
