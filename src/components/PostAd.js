@@ -33,10 +33,10 @@ export class PostAd extends Component {
   render() {
     return (
       <div className="row parent">
-        <div className="col-2 pr-0">
+        <div className="col-xs-12 col-sm-12 col-md-2 col-lg-2 pr-0">
           <UserProfile />
         </div>
-        <div className="main col-8">
+        <div className="main col-xs-12 col-sm-12 col-md-8 col-lg-8">
           <form onSubmit={this.handleSubmit} className="m-5">
             <div className="row">
               <div className="col">
@@ -104,7 +104,7 @@ export class PostAd extends Component {
                   />
                 </div>
               </div>
-              <div class="col">
+              <div className="col">
                 <div className="form-group">
                   <label htmlFor="exampleInputStatus1">Status</label>
                   <input
@@ -172,7 +172,7 @@ export class PostAd extends Component {
             </button>
           </form>
         </div>
-        <div className="col-2 pl-0">
+        <div className="col-xs-12 col-sm-12 col-md-2 col-lg-2 pl-0">
           <CompanyAds />
         </div>
       </div>

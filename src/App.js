@@ -45,22 +45,20 @@ const App = () => {
           <div className="App">
             <Header />
             <Notifications />
-            <LoadingIndicator/>
-            <switch>
-              <Route
-                exact
-                path="/"
-                render={props => (
-                  <React.Fragment>
-                    <Adverts />
-                  </React.Fragment>
-                )}
-              />
-              <Route path="/login" component={Login} />
-              <Route path="/signup" component={Signup} />
-              <Route path="/advertise" component={PostAd} />
-              <Route path="/advert" component={Advert} />
-            </switch>
+            <LoadingIndicator/>            
+            <Route
+              exact
+              path="/"
+              render={props => (
+                <React.Fragment>
+                  <Adverts />
+                </React.Fragment>
+              )}
+            />
+            <Route path="/login" component={Login} />
+            <Route path="/signup" component={Signup} />
+            <Route path="/advertise" component={PostAd} />
+            <Route path="/advert" component={Advert} />            
           </div>
       </React.Fragment>
     </Router>

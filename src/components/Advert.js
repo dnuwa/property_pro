@@ -45,10 +45,10 @@ export class Advert extends Component {
                 ));
                 return (
                     <div className="row parent">
-                        <div className="col-2">
+                        <div className="col-xs-12 col-sm-12 col-md-2 col-lg-2">
                             <UserProfile />
                         </div>
-                        <div className=" col-8">
+                        <div className="col-xs-12 col-sm-12 col-md-8 col-lg-8">
 
                             <div className="main">{ propertyObj }</div>
                             <div className="main">
@@ -60,7 +60,7 @@ export class Advert extends Component {
                                 </div>                                
                             </div>                           
                         </div>
-                        <div className="col-2">
+                        <div className="col-xs-12 col-sm-12 col-md-2 col-lg-2">
                             <CompanyAds />
                         </div>
                     </div>
