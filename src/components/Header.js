@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 export class Header extends Component {
   logout = () => {
@@ -8,7 +9,7 @@ export class Header extends Component {
   };
 
   render() {
-    const isLoggedIn = () => localStorage.getItem("token");
+    // console.log(this.props.userData);
 
     return (
       <nav className="navbar bg-dark fixed-nav">
@@ -16,7 +17,20 @@ export class Header extends Component {
           <Link to="/">PropertyPro-Lite</Link>{" "}
         </div>
         <ul className="list-group flex-md-row list">
-          {isLoggedIn() ? (
+          {!this.props.userData.data ? (
+            <ul className="list-group flex-md-row list">
+              <li className="list-group-item bg-dark">
+                <Link to="/login">
+                  <div className="headerlink">Login</div>
+                </Link>
+              </li>
+              <li className="list-group-item bg-dark">
+                <Link to="/signup">
+                  <div className="headerlink">Signup</div>
+                </Link>
+              </li>
+            </ul>
+          ) : (
             <ul className="list-group flex-md-row list">
               <li className="list-group-item bg-dark">
                 <Link to="/advertise">
@@ -36,19 +50,6 @@ export class Header extends Component {
                 </Link>
               </li>
             </ul>
-          ) : (
-            <ul className="list-group flex-md-row list">
-              <li className="list-group-item bg-dark">
-                <Link to="/login">
-                  <div className="headerlink">Login</div>
-                </Link>
-              </li>
-              <li className="list-group-item bg-dark">
-                <Link to="/signup">
-                  <div className="headerlink">Signup</div>
-                </Link>
-              </li>
-            </ul>
           )}
         </ul>
       </nav>
@@ -56,4 +57,8 @@ export class Header extends Component {
   }
 }
 
-export default Header;
+const mapStateToProps = (state) => ({
+  userData: state.authentication.userInfo,
+});
+
+export default connect(mapStateToProps, null)(Header);

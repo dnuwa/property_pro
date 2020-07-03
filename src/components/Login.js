@@ -5,7 +5,6 @@ import { authLogin } from '../actions/loginAction'
 
 class Login extends Component {
     constructor(props){
-        // this needs attention on how to maintain state
         super(props);
         this.state = {
             email: '',
@@ -25,6 +24,8 @@ class Login extends Component {
     render() {
         return (
             <div className="row parent">
+                <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4"></div>
+                <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                 <form className="container" onSubmit={this.handleSubmit}>
                     <div className="form-group">
                         <label htmlFor="exampleInputEmail1">Email address</label>
@@ -50,14 +51,16 @@ class Login extends Component {
                     </div>
                     <button type="submit" className="btn btn-primary">Submit</button>
                 </form>
+                </div>
+                <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4"></div>
             </div>
         )
     }
 }
 
 Login.propTypes = {
-    handleSubmit: PropTypes.func.isRequired,
-    onChange: PropTypes.func.isRequired
+    handleSubmit: PropTypes.func,
+    onChange: PropTypes.func
 }
 
 const mapStateToProps = state => ({

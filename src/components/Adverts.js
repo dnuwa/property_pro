@@ -8,7 +8,7 @@ import CompanyAds from './CompanyAds';
 
 class Adverts extends Component {
     
-    componentWillMount(){
+    componentDidMount(){
          this.props.fetchAdverts();
     }
 
@@ -29,15 +29,15 @@ class Adverts extends Component {
         ));
         return (
             <div className="row parent">
-                <div className="col-2 pr-0">
+                <div className="col-xs-12 col-sm-12 col-md-2 col-lg-2 pr-0">
                     <UserProfile />
                 </div>
-                <div className="main col-8">
+                <div className="main col-xs-12 col-sm-12 col-md-8 col-lg-8">
                     {
                         advertContent
                     }
                 </div>
-                <div className="col-2 pl-0">
+                <div className="col-xs-12 col-sm-12 col-md-2 col-lg-2 pl-0">
                     <CompanyAds />
                 </div>
             </div>
