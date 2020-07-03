@@ -12,13 +12,13 @@ class UserProfile extends Component {
                    <img src="https://barefootmedia.co.uk/wp-content/uploads/2016/01/Chris-user-profile.jpg" alt="user-dp"/>
                 </div>
                <div className="user-feature-box">
-                    <div className="m-2">
+                    <div className="m-1">
                             <Link to="#"><FontAwesomeIcon icon={"user"}/>   Update profile</Link>
                         </div>
-                    <div className="m-2">   
+                    <div className="m-1">   
                             <Link to="#"><FontAwesomeIcon icon={"key"}/>    Change password</Link>
                     </div>
-                    <div className="m-2">  
+                    <div className="m-1">  
                             <Link to="#"> <FontAwesomeIcon icon={"ad"}/>    My adverts </Link>
                     </div>                 
                </div>
