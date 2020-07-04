@@ -4,18 +4,14 @@ import { FETCH_ADS,
     SHOW_AD_DETAILS,
  } from './types';
 
- import { trackPromise } from 'react-promise-tracker';
-
 export const fetchAdverts = () => dispatch =>{ 
-    trackPromise(
-        fetch('https://property-pro-lite-api-app.herokuapp.com/api/v1/property')
-            .then(res => res.json())
-            .then(ads => dispatch({
-                type: FETCH_ADS,
-                payload: ads.data
-            })
-        )
-    ); 
+    fetch('https://property-pro-lite-api-app.herokuapp.com/api/v1/property')
+        .then(res => res.json())
+        .then(ads => dispatch({
+            type: FETCH_ADS,
+            payload: ads.data
+        })
+    )
 }
 
 export const postNewAd = (adObject) => dispatch =>{
