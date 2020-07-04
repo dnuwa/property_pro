@@ -8,10 +8,11 @@ export default function LoadingIndicator(props) {
         promiseInProgress && <div
             style={{
                 marginTop:"15%",
-                width: "100%",
+                // width: "100%",
                 // height: "100",
                 display: "flex",
                 justifyContent: "center",
+                // zIndex: 1,
                 // alignItems: "center"
             }}
         >
