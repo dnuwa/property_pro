@@ -12,18 +12,17 @@ class Adverts extends Component {
     this.props.fetchAdverts();
   }
 
-  defaultComponent =  [1,2,3,4,5,6].map(() => (
-    <div className="card p-2">
-    <div className="card-body">
-      <h6 className="text-center">{<Skeleton count={2} />}</h6>
-      <p className="text-center">{<Skeleton count={5} />}</p>
-      <p className="text-center">
-        <small className="text-muted">{<Skeleton count={1} />}
-        </small>
-      </p>
+  defaultComponent = [1, 2, 3, 4, 5, 6].map((i) => (
+    <div key={i} className="card p-2">
+      <div className="card-body">
+        <h6 className="text-center">{<Skeleton count={2} />}</h6>
+        <p className="text-center">{<Skeleton count={5} />}</p>
+        <p className="text-center">
+          <small className="text-muted">{<Skeleton count={1} />}</small>
+        </p>
+      </div>
     </div>
-  </div>
-  ))
+  ));
 
   render() {
     const advertContent = this.props.adverts.map((advert) => (
@@ -55,11 +54,9 @@ class Adverts extends Component {
           <UserProfile />
         </div>
         <div className="main col-xs-12 col-sm-12 col-md-8 col-lg-8">
-          {!this.props.adverts || this.props.adverts.length === 0 ? (
-            this.defaultComponent
-          ) : (
-            advertContent
-          )}
+          {!this.props.adverts || this.props.adverts.length === 0
+            ? this.defaultComponent
+            : advertContent}
         </div>
         <div className="col-xs-12 col-sm-12 col-md-2 col-lg-2 pl-0">
           <CompanyAds />
