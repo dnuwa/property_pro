@@ -13,7 +13,7 @@
 }
 
 .parent{
-  margin-top: 95px;
+  margin-top: 12px;
 }
 
 .card:hover{
@@ -22,42 +22,23 @@
 
 .logo a{
   text-decoration: none !important;
-  font-size: 200%;
+  font-size: 140%;
   margin-left: 50px;
-  color: white;
 }
 
-.fixed-nav{
-  position: fixed !important;
+.sticky-nav {
+  position: sticky;
   top: 0;
   z-index: 1;
-  width: 100%;
 }
 
-.list-group-item{
-  position: relative;
-  display: block;
-  padding: 5px !important;
-  background-color: #fff;
-  border: none !important;
+.nav-bar-links{
+  background: none !important;
+  border: none;
 }
 
-.headerlink{
-  border: solid blue 1px;
-  border-radius: 30px;
-  padding: 8px;
-  width: 100px;
-  text-align: center;
-}
-
-.headerlink:hover{
-  background-color: blue;
-  color:white !important;
-}
-
-.headerlink a:hover{
+.nav-bar-links a:hover{
   text-decoration: none;
-  color:white !important;
 }
 
 .list{
@@ -122,7 +103,7 @@
   position: -ms-sticky;
   position: -o-sticky;
   position: sticky;
-  top: 100px;
+  top: 76px;
 }
 
 .socials-feature-box{
