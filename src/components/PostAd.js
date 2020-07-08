@@ -156,11 +156,11 @@ export class PostAd extends Component {
                 <div className="form-group">
                   <label htmlFor="exampleInputimageUrl1">Property Image</label>
                   <input
-                    type="url"
+                    type="file"
                     name="imageUrl"
                     className="form-control"
                     id="exampleInputimageUrl1"
-                    placeholder="htps://someimageUrl.jpg"
+                    // placeholder="htps://someimageUrl.jpg"
                     value={this.state.imageUrl}
                     onChange={this.handleChange}
                   />
