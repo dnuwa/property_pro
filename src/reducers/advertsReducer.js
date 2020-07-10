@@ -1,5 +1,5 @@
 import { FETCH_ADS, AD_CREATE_SUCCESS, AD_CREATE_FAILURE, SHOW_AD_DETAILS } from '../actions/types';
-import { notify } from  '../components/Notifications'
+import { success, error } from 'react-toast-notification';
 
 const initialState = {
     items: [],
@@ -15,10 +15,10 @@ export default function(state = initialState, action){
             }
         case AD_CREATE_SUCCESS:
             if (action.payload.error){
-                notify(action.payload.error, 'red');
+                error(action.payload.error);
             } else {
                 localStorage.setItem('advert_id', action.payload.data.id);
-                notify('Success', 'green');
+                success(`Created successfully!`)
                 window.location.replace('/');
             }
             return {
@@ -28,7 +28,7 @@ export default function(state = initialState, action){
         case AD_CREATE_FAILURE:
 
             //this needs fixing for when the token is expired
-            notify('Something has gone wrong, check your internet and try again', 'red');
+            error('Something has gone wrong, check your internet and try again');
             return {
                 ...state,
                 item: action.payload
