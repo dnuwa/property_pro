@@ -22,7 +22,6 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import PostAd from "./components/PostAd";
 import Advert from "./components/Advert";
-import Notifications from "./components/Notifications";
 import LoadingIndicator from "./components/LoadingIndicator";
 
 library.add(
@@ -44,7 +43,6 @@ const App = () => {
       <React.Fragment>
           <div className="App">
             <Header />
-            <Notifications />
             <LoadingIndicator/>            
             <Route
               exact

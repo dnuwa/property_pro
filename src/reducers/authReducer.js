@@ -1,5 +1,5 @@
 import { LOGIN_SUCCESS, LOGIN_FAILURE, SIGNUP_SUCCESS, SIGNUP_FAILURE } from '../actions/types'
-import { notify } from  '../components/Notifications'
+import { success, error } from 'react-toast-notification';
 
 const initialState = {
     userInfo: {}
@@ -9,11 +9,11 @@ export default function(state=initialState, action){
     switch(action.type){
         case LOGIN_SUCCESS:
             if (action.payload.error){
-                notify(action.payload.error, 'red');
+                error(action.payload.error);
             } else {
                 localStorage.setItem('token', action.payload.data.token);
                 localStorage.setItem('username', action.payload.data.firstName);
-                notify(`Welcome ${action.payload.data.firstName}`, 'green');
+                success(`Welcome ${action.payload.data.firstName}`)
             }
             return {
                 ...state,
@@ -26,11 +26,11 @@ export default function(state=initialState, action){
             }
         case SIGNUP_SUCCESS:
             if (action.payload.error){
-                notify(action.payload.error, 'red');
+                error(action.payload.error);
             } else {
                 localStorage.setItem('token', action.payload.data.token);
                 localStorage.setItem('username', action.payload.data.firstName);
-                notify(`Welcome ${action.payload.data.firstName}`, 'green');
+                success(`Welcome ${action.payload.data.firstName}`)
                 window.location.replace('/');
             }
             return {
